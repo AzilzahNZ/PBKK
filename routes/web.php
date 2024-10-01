@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SizinController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [App\Http\Controllers\LandingPageController::class,'index']);
+Route::get('/sizin', [App\Http\Controllers\SizinController::class,'index']);
+Route::get('/create', [SizinController::class, 'create'])->name('create');
+Route::post('/store', [SizinController::class, 'store'])->name('store');

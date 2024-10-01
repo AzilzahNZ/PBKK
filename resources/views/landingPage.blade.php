@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Impact Bootstrap Template</title>
+  <title>SIMPULS</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -91,7 +91,7 @@
             <div class="col-xl-5 col-md-7">
               <div class="icon-box">
                 <div class="icon"><i class="bi bi-command"></i></div>
-                <h4 class="title"><a href="" class="stretched-link">Surat Izin Kegiatan</a></h4>
+                <h4 class="title"><a href="/sizin" class="stretched-link">Surat Izin Kegiatan</a></h4>
               </div>
             </div><!--End Icon Box -->
 
@@ -104,10 +104,7 @@
   </main>
 
   <footer id="footer" class="footer accent-background">
-    <div class="container copyright text-center mt-4">
       <p> <strong class="px-1 sitename">FT</strong>©<strong class="px-1 sitename">2024</strong></p>
-      </div>
-    </div>
   </footer>
 
   <!-- Scroll Top -->
