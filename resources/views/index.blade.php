@@ -85,7 +85,7 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
                             <thead>
-                                <tr>
+                                    <th>No</th>
                                     <th>NomorSurat</th>
                                     <th>NamaKegiatan</th>
                                     <th>HariKegiatan</th>
@@ -95,11 +95,12 @@
                                     <th>Semester</th>
                                     <th>NomorHPPJ</th>
                                     <th>Status</th>
-                                </tr>
+                                    <th>Aksi</th>
                             </thead>
                             <tbody>
                                 @foreach ($data as $dt)
                                     <tr>
+                                        <td>{{$loop->iteration}}</td>
                                         <td>{{$dt->NomorSurat}}</td>
                                         <td>{{$dt->NamaKegiatan}}</td>
                                         <td>{{$dt->HariKegiatan}}</td>
@@ -109,6 +110,14 @@
                                         <td>{{$dt->Semester}}</td>
                                         <td>{{$dt->NomorHPPJ}}</td>
                                         <td>{{$dt->Status}}</td>
+                                        <td>
+                                            <a href="{{route('edit', $dt->id)}}">Edit</a>
+                                            <form action="{{route('destroy', $dt->id)}}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button>Hapus</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

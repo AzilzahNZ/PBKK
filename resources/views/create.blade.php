@@ -22,6 +22,14 @@
     
     <!-- Main CSS File -->
     <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+    <style>
+        .btn-primary {
+            background-color:#d77c43;
+        }
+        .btn-primary:hover {
+            background-color:rgb(30, 234, 30);
+        }
+    </style>
 </head>
 
 <body>
@@ -43,79 +51,90 @@
     </div>
 </header>
 
-<main class="main">
-    <!-- Hero Section -->
+<main>
     <section id="hero" class="hero section accent-background mt-5">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-6">
+                <div class="col-lg-8">
                     <h1 class="mb-4">Masukkan Data Surat Izin Kegiatan ORMAWA Fakultas Teknik</h1>
+    </section>
 
-                    <form action="{{ route('store') }}" method="post" class="form-group">
-                        @csrf 
-                        <div class="mb-3">
-                            <label for="NomorSurat" class="form-label">NomorSurat</label>
-                            <input type="text" name="NomorSurat" id="NomorSurat" class="form-control" placeholder="Masukkan nomor surat" required>
-                        </div>
+    <section class="py-5" id="sizin">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="form-container">
+                        <form action="{{ route('store') }}" method="post">
+                            @csrf 
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="NomorSurat" class="form-label">Nomor Surat</label>
+                                    <input type="text" name="NomorSurat" id="NomorSurat" class="form-control" placeholder="Masukkan nomor surat" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="NamaKegiatan" class="form-label">Nama Kegiatan</label>
+                                    <input type="text" name="NamaKegiatan" id="NamaKegiatan" class="form-control" placeholder="Masukkan nama kegiatan" required>
+                                </div>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="NamaKegiatan" class="form-label">NamaKegiatan</label>
-                            <input type="text" name="NamaKegiatan" id="NamaKegiatan" class="form-control" placeholder="Masukkan nama kegiatan" required>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="HariKegiatan" class="form-label">Hari Kegiatan</label>
+                                    <select name="HariKegiatan" id="HariKegiatan" class="form-select" required>
+                                        <option value="Senin">Senin</option>
+                                        <option value="Selasa">Selasa</option>
+                                        <option value="Rabu">Rabu</option>
+                                        <option value="Kamis">Kamis</option>
+                                        <option value="Jumat">Jumat</option>
+                                        <option value="Sabtu">Sabtu</option>
+                                        <option value="Minggu">Minggu</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="TanggalKegiatan" class="form-label">Tanggal Kegiatan</label>
+                                    <input type="date" name="TanggalKegiatan" id="TanggalKegiatan" class="form-control" required>
+                                </div>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="HariKegiatan" class="form-label">HariKegiatan</label>
-                            <select name="HariKegiatan" id="HariKegiatan" class="form-select" required>
-                                <option value="Senin">Senin</option>
-                                <option value="Selasa">Selasa</option>
-                                <option value="Rabu">Rabu</option>
-                                <option value="Kamis">Kamis</option>
-                                <option value="Jumat">Jumat</option>
-                                <option value="Sabtu">Sabtu</option>
-                                <option value="Minggu">Minggu</option>
-                            </select>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="TempatKegiatan" class="form-label">Tempat Kegiatan</label>
+                                    <input type="text" name="TempatKegiatan" id="TempatKegiatan" class="form-control" placeholder="Masukkan tempat kegiatan" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="PJKegiatan" class="form-label">PJ Kegiatan</label>
+                                    <input type="text" name="PJKegiatan" id="PJKegiatan" class="form-control" placeholder="Masukkan nama PJ" required>
+                                </div>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="TanggalKegiatan" class="form-label">TanggalKegiatan</label>
-                            <input type="date" name="TanggalKegiatan" id="TanggalKegiatan" class="form-control" required>
-                        </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="Semester" class="form-label">Semester</label>
+                                    <input type="number" name="Semester" id="Semester" class="form-control" placeholder="Masukkan semester anda" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="NomorHPPJ" class="form-label">Nomor HP PJ</label>
+                                    <input type="text" name="NomorHPPJ" id="NomorHPPJ" class="form-control" placeholder="Masukkan nomor HP PJ" required>
+                                </div>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="TempatKegiatan" class="form-label">TempatKegiatan</label>
-                            <input type="text" name="TempatKegiatan" id="TempatKegiatan" class="form-control" placeholder="Masukkan tempat kegiatan" required>
-                        </div>
+                            <div class="mb-3">
+                                <label for="Status" class="form-label">Status</label>
+                                <select name="Status" id="Status" class="form-select" required>
+                                    <option value="1">Diizinkan</option>
+                                    <option value="0">Tidak Diizinkan</option>
+                                </select>
+                            </div>
 
-                        <div class="mb-3">
-                            <label for="PJKegiatan" class="form-label">PJKegiatan</label>
-                            <input type="text" name="PJKegiatan" id="PJKegiatan" class="form-control" placeholder="Masukkan nama PJ" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="Semester" class="form-label">Semester</label>
-                            <input type="text" name="Semester" id="Semester" class="form-control" placeholder="Masukkan semester anda" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="NomorHPPJ" class="form-label">NomorHPPJ</label>
-                            <input type="text" name="NomorHPPJ" id="NomorHPPJ" class="form-control" placeholder="Masukkan nomor HP PJ" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="Status" class="form-label">Status</label>
-                            <select name="Status" id="Status" class="form-select" required>
-                                <option value="1">Diizinkan</option>
-                                <option value="0">Tidak Diizinkan</option>
-                            </select>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </form>
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg">Simpan</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- /Hero Section -->
 </main>
 
 <footer id="footer" class="footer accent-background">

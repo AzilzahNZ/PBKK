@@ -43,7 +43,7 @@ class SizinController extends Controller
         ]);
         $sizin = Sizin::create($data);
         if($sizin) {
-            return redirect()->back()->with('success', 'Data berhasil ditambahkan');
+            return redirect()->route('sizin')->with('success', 'Data berhasil ditambahkan');
         }
     }
 
@@ -58,9 +58,12 @@ class SizinController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Sizin $sizin)
     {
-        //
+        return view(
+            'edit',
+            ['sizin' => $sizin]
+        );
     }
 
     /**
@@ -68,14 +71,30 @@ class SizinController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'NomorSurat' => 'required|string',
+            'NamaKegiatan' => 'required|string',
+            'HariKegiatan' => 'required|in:Senin,Selasa,Rabu,Kamis,Jumat,Sabtu,Minggu',
+            'TanggalKegiatan' => 'required|date',
+            'TempatKegiatan' => 'required|string',
+            'PJKegiatan' => 'required|string',
+            'Semester' => 'required|integer',
+            'NomorHPPJ' => 'required|string',
+            'Status' => 'required|boolean',
+        ]);
+        $sizin = Sizin::find($id);
+        $sizin->update($validated);
+        
+        return redirect()->route('sizin')->with('success', 'Data berhasil diubah');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Sizin $sizin)
     {
-        //
+        $sizin->delete();
+        return redirect()->route('sizin')->with('success', 'Data berhasil dihapus');
     }
 }
