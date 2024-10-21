@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sizin extends Model
 {
     use HasFactory;
-    protected $table = 'sizin';
+    protected $table = 'sizins';
     protected $fillable = [
         'NomorSurat',
         'NamaKegiatan',
@@ -20,4 +20,11 @@ class Sizin extends Model
         'NomorHPPJ',
         'Status',
     ];
+
+    //One To Many
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

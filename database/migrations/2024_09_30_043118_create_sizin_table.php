@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sizin', function (Blueprint $table) {
+        Schema::create('sizins', function (Blueprint $table) {
             $table->id();
             $table->string('NomorSurat');
             $table->string('NamaKegiatan');
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('Semester');
             $table->string('NomorHPPJ');
             $table->boolean('Status')->default(true);
+            $table->foreignIdFor(App\Models\User::class, 'user_id')->constrained()->OnDelete('cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sizin');
+        Schema::dropIfExists('sizins');
     }
 };

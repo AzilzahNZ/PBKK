@@ -95,6 +95,7 @@
                                     <th>Semester</th>
                                     <th>NomorHPPJ</th>
                                     <th>Status</th>
+                                    <th>User</th>
                                     <th>Aksi</th>
                             </thead>
                             <tbody>
@@ -110,6 +111,7 @@
                                         <td>{{$dt->Semester}}</td>
                                         <td>{{$dt->NomorHPPJ}}</td>
                                         <td>{{$dt->Status}}</td>
+                                        <td>{{$dt->users->nama}}</td>
                                         <td>
                                             <a href="{{route('edit', $dt->id)}}">Edit</a>
                                             <form action="{{route('destroy', $dt->id)}}" method="POST">

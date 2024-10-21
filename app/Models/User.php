@@ -18,10 +18,16 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nama',
         'email',
         'password',
+        'sizin_id',
     ];
+
+    public function sizins()
+    {
+        return $this->hasMany(User::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
