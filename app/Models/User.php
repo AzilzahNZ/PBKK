@@ -21,7 +21,6 @@ class User extends Authenticatable
         'nama',
         'email',
         'password',
-        'sizin_id',
     ];
 
     public function sizins()

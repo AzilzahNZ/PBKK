@@ -26,7 +26,6 @@ class DatabaseSeeder extends Seeder
         'nama' => 'HIMATIF',
         'email' => 'Himatif@gmail.com',
         'password' => bcrypt('password'),
-        'sizin_id' => 1
     ]);
 
     $suratizin1 = Sizin::create([
@@ -59,7 +58,6 @@ class DatabaseSeeder extends Seeder
         'nama' => 'HIMASIF',
         'email' => 'Himasif@gmail.com',
         'password' => bcrypt('password'),
-        'sizin_id' => 2
     ]);
 
     $suratizin1 = Sizin::create([

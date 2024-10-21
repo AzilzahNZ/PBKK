@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('password');
-            $table->foreignIdFor(Sizin::class, 'sizin_id')->constrained()->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

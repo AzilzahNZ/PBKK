@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sizin extends Model
 {
     use HasFactory;
-    protected $table = 'sizins';
+    protected $table = 'sizin';
     protected $fillable = [
         'NomorSurat',
         'NamaKegiatan',
